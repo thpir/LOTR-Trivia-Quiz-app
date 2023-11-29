@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/data/questions.dart';
 
 import 'quiz.dart';
 import 'result.dart';
@@ -15,98 +16,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _questions = const [
-    {
-      'questionText': 'Which 2 members of the Fellowship are cousins?',
-      'answers': [
-        {'text': 'Merry and Pippin', 'score': 1},
-        {'text': 'Sam and Frodo', 'score': 0},
-        {'text': 'Aragorn and Boromir', 'score': 0},
-        {'text': 'Merry and Tom', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What is Gimli\'s father\'s name?',
-      'answers': [
-        {'text': 'Durin', 'score': 0},
-        {'text': 'Oin', 'score': 0},
-        {'text': 'Gloin', 'score': 1},
-        {'text': 'Thorin', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What is Sam\'s profession?',
-      'answers': [
-        {'text': 'Farmer', 'score': 0},
-        {'text': 'Gardener', 'score': 1},
-        {'text': 'Unemployed', 'score': 0},
-        {'text': 'Unknown', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What King refused to throw the One Ring into Mount Doom?',
-      'answers': [
-        {'text': 'Isildur', 'score': 1},
-        {'text': 'Gandalf', 'score': 0},
-        {'text': 'Elendil', 'score': 0},
-        {'text': 'Elrond', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'Who is the King of Rohan?',
-      'answers': [
-        {'text': 'Aragorn', 'score': 0},
-        {'text': 'Isildur', 'score': 0},
-        {'text': 'Théodred', 'score': 0},
-        {'text': 'Théoden', 'score': 1}
-      ]
-    },
-    {
-      'questionText': 'What is the name of Saruman\'s sidekick?',
-      'answers': [
-        {'text': 'Sauron', 'score': 0},
-        {'text': 'Grima', 'score': 1},
-        {'text': 'Lurtz', 'score': 0},
-        {'text': 'Théoden', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What is the name of Frodo\'s sword?',
-      'answers': [
-        {'text': 'Unnamed', 'score': 0},
-        {'text': 'Sting', 'score': 1},
-        {'text': 'Orcrist', 'score': 0},
-        {'text': 'Glamdring', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What monster does Gandalf the Grey fight in the Mines of Moria?',
-      'answers': [
-        {'text': 'Balrog', 'score': 1},
-        {'text': 'Sauron', 'score': 0},
-        {'text': 'Uruk-hai', 'score': 0},
-        {'text': 'A giant spider', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'What is the name of Saruman\'s fortress?',
-      'answers': [
-        {'text': 'Minas Tirith', 'score': 0},
-        {'text': 'Minas Morgul', 'score': 0},
-        {'text': 'Isengard', 'score': 1},
-        {'text': 'Barad-Dûr', 'score': 0}
-      ]
-    },
-    {
-      'questionText': 'How many members of the Fellowship are there?',
-      'answers': [
-        {'text': '10', 'score': 0},
-        {'text': '9', 'score': 1},
-        {'text': '8', 'score': 0},
-        {'text': '7', 'score': 0}
-      ]
-    },
-  ];
   var _questionIndex = 0;
   var _totalScore = 0;
 
@@ -127,7 +36,7 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = _questionIndex + 1;
     });
     print(_questionIndex);
-    if (_questionIndex < _questions.length) {
+    if (_questionIndex < Questions.easy.length) {
       print('We have more question!');
     } else {
       print('No more questions!');
@@ -163,11 +72,11 @@ class _MyAppState extends State<MyApp> {
           ),
 
           // Foreground content
-          child: _questionIndex < _questions.length
+          child: _questionIndex < Questions.easy.length
             ? Quiz(
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
-                questions: _questions,
+                questions: Questions.easy,
               )
             : Result(_totalScore, _resetQuiz),
         ),
