@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Answer extends StatelessWidget {
-  final Function selectHandler;
+  final VoidCallback selectHandler;
   final String answerText; // If Function throws and error, use VoidCallback
 
   Answer(this.selectHandler, this.answerText);

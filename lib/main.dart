@@ -6,8 +6,6 @@ import 'result.dart';
 void main() {
   runApp(MyApp());
 }
-// Also valid:
-//void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override

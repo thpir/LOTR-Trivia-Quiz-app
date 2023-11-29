@@ -5,7 +5,7 @@ import 'package:flutter_complete_guide/question.dart';
 // Custom widget
 class Result extends StatelessWidget {
   final int resultScore;
-  final Function resetHandler;
+  final VoidCallback resetHandler;
 
   // Constructor
   Result(this.resultScore, this.resetHandler);
