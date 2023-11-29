@@ -32,7 +32,10 @@ class Result extends StatelessWidget {
       child: Column(
         children:[
           Question(resultPhrase),
-          Answer(resetHandler, 'Restart Quiz!'),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+            child: Answer(resetHandler, 'Restart Quiz!'),
+          ),
         ],
       ),
     );
