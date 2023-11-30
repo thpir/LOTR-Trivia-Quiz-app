@@ -47,7 +47,7 @@ class Result extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Colors.black38,
                 ),
                 child: Text(
                   'Quit',

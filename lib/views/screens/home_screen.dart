@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Colors.black38,
                         ),
                         child: Text(
                           'Easy',
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Colors.black38,
                         ),
                         child: Text(
                           'Intermediate',
@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Colors.black38,
                         ),
                         child: Text(
                           'Hard',
