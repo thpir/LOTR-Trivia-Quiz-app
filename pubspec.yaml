@@ -31,10 +31,16 @@ dev_dependencies:
     sdk: flutter
   flutter_launcher_icons: "^0.13.1"
 
-flutter_icons:
-  android: "launcer_icon"
-  ios: true
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
   image_path: "assets/icons/app_logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/icons/app_logo.png"
+    background_color: "#312d1f"
+    theme_color: "#f5e5c3"
 
 # The following section is specific to Flutter.
 flutter:
