@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/controllers/background_controller.dart';
 import 'package:flutter_complete_guide/data/backgrounds.dart';
-import 'package:flutter_complete_guide/quiz.dart';
-import 'package:flutter_complete_guide/result.dart';
+import 'package:flutter_complete_guide/views/widgets/quiz.dart';
+import 'package:flutter_complete_guide/views/widgets/result.dart';
 import 'package:provider/provider.dart';
 
 class QuizScreen extends StatefulWidget {

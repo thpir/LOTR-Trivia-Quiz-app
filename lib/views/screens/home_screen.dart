@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/controllers/background_controller.dart';
 import 'package:flutter_complete_guide/data/backgrounds.dart';
 import 'package:flutter_complete_guide/data/questions.dart';
-import 'package:flutter_complete_guide/screen/quiz_screen.dart';
+import 'package:flutter_complete_guide/views/screens/quiz_screen.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
