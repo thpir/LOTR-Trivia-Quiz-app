@@ -82,8 +82,9 @@ class _QuizScreenState extends State<QuizScreen> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: widget.quiz,
+                width: width,
               )
-            : Result(_totalScore, _resetQuiz),
+            : Result(_totalScore, _resetQuiz, width),
         )
       ),
     );

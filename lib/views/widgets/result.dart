@@ -6,9 +6,10 @@ import 'package:flutter_complete_guide/views/widgets/question.dart';
 class Result extends StatelessWidget {
   final int resultScore;
   final VoidCallback resetHandler;
+  final double width;
 
   // Constructor
-  Result(this.resultScore, this.resetHandler);
+  Result(this.resultScore, this.resetHandler, this.width);
 
   // Getter
   String get resultPhrase {
@@ -36,13 +37,13 @@ class Result extends StatelessWidget {
           Question(resultPhrase),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-            child: Answer(resetHandler, 'Retry!'),
+            child: Answer(resetHandler, 'Retry!', width),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
-              width: double.infinity,
+              width: width >= 600 ? 580 : double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
