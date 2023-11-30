@@ -75,15 +75,16 @@ class _QuizScreenState extends State<QuizScreen> {
             fit: BoxFit.cover,
           ),
         ),
-
         // Foreground content
-        child: _questionIndex < widget.quiz.length
+        child: SingleChildScrollView(
+          child: _questionIndex < widget.quiz.length
             ? Quiz(
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: widget.quiz,
               )
             : Result(_totalScore, _resetQuiz),
+        )
       ),
     );
   }
