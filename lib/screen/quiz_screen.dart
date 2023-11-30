@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/controllers/background_controller.dart';
+import 'package:flutter_complete_guide/data/backgrounds.dart';
 import 'package:flutter_complete_guide/quiz.dart';
 import 'package:flutter_complete_guide/result.dart';
+import 'package:provider/provider.dart';
 
 class QuizScreen extends StatefulWidget {
   final List<Map<String, Object>> quiz;
@@ -40,6 +43,10 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<BackgroundController>(context);
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    bool portrait = width > height ? false : true;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -58,9 +65,13 @@ class _QuizScreenState extends State<QuizScreen> {
       body: Container(
         // Background image
         constraints: BoxConstraints.expand(),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/wallpaper1.jpg'),
+            image: AssetImage(
+              portrait 
+                  ? Backgrounds.portraitBackgrounds[controller.background]
+                  : Backgrounds.landscapeBackgrounds[controller.background]
+            ),
             fit: BoxFit.cover,
           ),
         ),

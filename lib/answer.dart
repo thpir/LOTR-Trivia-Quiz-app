@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/controllers/background_controller.dart';
+import 'package:provider/provider.dart';
 
 class Answer extends StatelessWidget {
-  final VoidCallback selectHandler;
+  final Function selectHandler;
   final String answerText; // If Function throws and error, use VoidCallback
 
   Answer(this.selectHandler, this.answerText);
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<BackgroundController>(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       width: double.infinity,
@@ -18,11 +21,12 @@ class Answer extends StatelessWidget {
         ),
         child: Text(
           answerText,
-          style: TextStyle(
-            fontFamily: 'aniron'
-          ),
+          style: TextStyle(fontFamily: 'aniron'),
         ),
-        onPressed: selectHandler,
+        onPressed: () {
+          controller.changeBackground();
+          selectHandler();
+        },
       ),
     );
   }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/controllers/background_controller.dart';
+import 'package:flutter_complete_guide/data/backgrounds.dart';
 import 'package:flutter_complete_guide/data/questions.dart';
 import 'package:flutter_complete_guide/screen/quiz_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,12 +21,12 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  navigateToQuiz() {
-    
-  }
-
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<BackgroundController>(context);
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    bool portrait = width > height ? false : true;
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -41,9 +44,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: Container(
           constraints: BoxConstraints.expand(),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/wallpaper1.jpg'),
+              image: AssetImage(portrait
+                  ? Backgrounds.portraitBackgrounds[controller.background]
+                  : Backgrounds.landscapeBackgrounds[controller.background]),
               fit: BoxFit.cover,
             ),
           ),
@@ -162,7 +167,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(quiz: Questions.quizQuestions[difficulty],)));
+                        controller.changeBackground();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => QuizScreen(
+                                      quiz: Questions.quizQuestions[difficulty],
+                                    )));
                       },
                     )
                   ],
